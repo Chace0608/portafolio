@@ -1,0 +1,189 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/*la url se obtiene de google fonts*/
+
+/*uso de variable (root)*/
+:root{
+    --color-fondo: #000000;
+    --color-texto: #F6F6F6;
+    --color-footer-resaltado: #22D4fd;
+    --color-hover: #272727;
+
+
+    --fuente-monserrat: "Montserrat", sans-serif;
+    --fuente-krona-one: "Krona One", sans-serif;
+
+}
+
+
+
+* {
+    /*esto es un reset*/
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    /*da el color y tamaño de la vista de la pantalla del navegador*/
+    background-color:var(--color-fondo) ;
+    color:var(--color-texto) ;
+    
+    box-sizing: border-box;
+}
+
+.header{
+    padding: 2% 0% 0% 10%;
+}
+
+
+.header_menu{
+    display: flex;
+    gap: 80px;
+}
+
+
+.header_menu_link{
+    font-family: var(--fuente-monserrat);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-footer-resaltado);
+    text-decoration: none;
+}
+
+
+
+
+
+
+.titulo-destaque{
+    /*di color a la oración que fue destacada con le atributo strong*/
+    color:var(--color-footer-resaltado);
+}
+
+.Presentacion {
+    /*posiciona el contenido total, el objetivo es ajustar el espacio entre la sección de texto y la imagen */
+    display: flex;
+    align-items: center;
+    padding: 1.5% 10%;
+    justify-content: space-between;
+    gap: 82px;
+}
+
+.Presentacion_contenido{
+    /*es el ancho del elemento hijo que contiene el texto*/
+    width: 50%;
+    /*de manera predeterminada ordena los elementos en fila, juntandolo en cajas quedando asi: [][][]*/
+    display: flex; /*convierte el elemento en un contenedor Flexbox.*/
+    /*indica que se ordene en forma vertical*/
+    flex-direction: column;
+    /*indica la separacion que habra entre los elementos ordenados previamente en vertical*/
+    gap: 20px;
+    
+}
+
+.Presentacion_contenido_titulo{
+    /*da la fuenta y tamaño al titulo*/
+    font-size: 2.25rem;
+    /*atribuye el tamaño de la letra*/
+    font-family: var(--fuente-krona-one);
+    /*indica la fuente utilizada la cual fue obtenida de google fonts*/
+}
+
+.Presentacion_contenido_texto{
+    /*da el tamaño y fuente del parrafo*/
+    font-size: 1.25rem;
+    font-family: var(--fuente-monserrat);
+}
+
+.enlaces{
+    /*con esto declaro un alineamiento horizontal, por defecto se usará el eje X*/
+    display: flex;
+    justify-content: space-between;
+    /*con estoordenamos de manera vertical el subtitulo y los botones*/
+    flex-direction: column;
+    /*ya que con el column cambiamos el eje de horizontal a vertical, no podemos centrar
+    el subtitulo y los botones usando justify-content: center, por el cambio de eje, por ello usaremos:*/
+    align-items: center;
+    gap: 25px;
+}
+
+
+.enlaces_subtitulos{
+    font-family: var(--fuente-krona-one);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+
+
+
+.enlaces_boton{ /*personalizo los botones*/
+    /*doy el ancho de los botones*/
+    width: 50%;
+    /* background-color:crimson ; */
+    /* doy el color de fondo de los botones*/
+    text-align: center;
+    /*alinea al centro los botones*/
+    padding: 21.5px 0;
+    /*es el espacio entre el contenido del boton (palabras) y el marco del boton*/
+    border-radius: 8px;
+    /*doy la curva a las esquinas de los botones*/
+    font-family: var(--fuente-monserrat);
+    font-size: 1.25rem;
+    /*doy la intensidad de negrita a las letras*/
+    font-weight: 600;
+    /*con esto elimino el subrayado que tiene las palabras dentro de los botones*/
+    text-decoration: none;
+    /*doy el color a las letras*/
+    color:var(--color-texto) ;
+    /*con esto al borde de los botones de doy un estilo, en este ejm sera darle color al borde con un grosor*/
+    border: 2px solid var(--color-footer-resaltado);
+    /*con esto puedo alinear la imagen con el texto dentro del boton*/
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*con hover hago que al momento que el curso toque el boton, el boton cambie sus propiedades, este caso el color*/
+.enlaces_boton:hover{
+    background-color: var(--color-hover);
+}
+
+.footer{
+    background-color:var(--color-footer-resaltado) ;
+    padding: 20px;
+    color: var(--color-fondo);
+    text-align: center;
+    font-family: var(--fuente-monserrat);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+
+.presentacion_imagen{
+    width: 50%;
+}
+
+/*con esto indicamos que menos del tamaño indicado en () la imagen tome otra posición al achicar la pantalla*/
+@media (max-width: 1200px){
+    .Presentacion{
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+
+    .Presentacion_contenido{
+        width: auto;
+    }
+
+
+
+    .header{
+        padding: 7%;
+    }
+
+    .header_menu{
+        justify-content: center;
+    }
+}
